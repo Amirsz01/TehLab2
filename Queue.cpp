@@ -1,4 +1,4 @@
-#include </Users/Amirsz/source/repos/ÒåñòîâûéÑòåíä/ÒåñòîâûéÑòåíä2/Queue.h>
+#include </Users/Amirsz/source/repos/Ð¢ÐµÑÑ‚Ð¾Ð²Ñ‹Ð¹Ð¡Ñ‚ÐµÐ½Ð´/Ð¢ÐµÑÑ‚Ð¾Ð²Ñ‹Ð¹Ð¡Ñ‚ÐµÐ½Ð´2/Queue.h>
 Queue::Queue(int size)
 {
 	this->head = nullptr;
@@ -26,12 +26,12 @@ void Queue::getPod(int need)
 	el *ptr = head;
 	if (!getSize())
 	{
-		cout << "Â î÷åðåäè íåò ýëåìåíòîâ" << endl;
+		cout << "Ð’ Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð¸ Ð½ÐµÑ‚ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð²" << endl;
 		return;
 	}
 	if (need > getSize())
 	{
-		cout << "Â î÷åðåäè íåò ñòîëüêî ýëåìåíòîâ" << endl;
+		cout << "Ð’ Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð¸ Ð½ÐµÑ‚ ÑÑ‚Ð¾Ð»ÑŒÐºÐ¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð²" << endl;
 		return;
 	}
 	for (int i = 0; i < need; i++)
@@ -50,7 +50,7 @@ Queue::Queue(const Queue& other)
 {
 	this->size = other.size;
 	if (!other.size) {
-		cout << "Îáúåêò: ïóñò" << endl;
+		cout << "ÐžÐ±ÑŠÐµÐºÑ‚: Ð¿ÑƒÑÑ‚" << endl;
 		return;
 	}
 	el* current = other.head;
@@ -137,14 +137,14 @@ bool Queue::operator >=(const Queue& op2)
 	{
 		if (ptr->data >= ptr1->data)
 		{
-			cout << "Ýëåìåíò ïîä íîìåðîì " << count + 1 << "áîëüøå èëè ðàâíî ÷åì ýëåìåíò â äðóãîé î÷åðåäè" << endl;
+			cout << "Ð­Ð»ÐµÐ¼ÐµÐ½Ñ‚ Ð¿Ð¾Ð´ Ð½Ð¾Ð¼ÐµÑ€Ð¾Ð¼ " << count + 1 << "Ð±Ð¾Ð»ÑŒÑˆÐµ Ð¸Ð»Ð¸ Ñ€Ð°Ð²Ð½Ð¾ Ñ‡ÐµÐ¼ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð² Ð´Ñ€ÑƒÐ³Ð¾Ð¹ Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð¸" << endl;
 			return true;
 		}
 		ptr = ptr->next;
 		ptr1 = ptr1->next;
 		count++;
 	}
-	cout << "Òàêîãî ýëåìåíòà íåò" << endl;
+	cout << "Ð¢Ð°ÐºÐ¾Ð³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° Ð½ÐµÑ‚" << endl;
 	return false;
 }
 
@@ -156,14 +156,14 @@ bool Queue::operator <=(const Queue& op2)
 	{
 		if (ptr->data <= ptr1->data)
 		{
-			cout << "Ýëåìåíò ïîä íîìåðîì " << count + 1 << "ìåíüøå èëè ðàâíî ÷åì ýëåìåíò â äðóãîé î÷åðåäè" << endl;
+			cout << "Ð­Ð»ÐµÐ¼ÐµÐ½Ñ‚ Ð¿Ð¾Ð´ Ð½Ð¾Ð¼ÐµÑ€Ð¾Ð¼ " << count + 1 << "Ð¼ÐµÐ½ÑŒÑˆÐµ Ð¸Ð»Ð¸ Ñ€Ð°Ð²Ð½Ð¾ Ñ‡ÐµÐ¼ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð² Ð´Ñ€ÑƒÐ³Ð¾Ð¹ Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð¸" << endl;
 			return true;
 		}
 		ptr = ptr->next;
 		ptr1 = ptr1->next;
 		count++;
 	}
-	cout << "Òàêîãî ýëåìåíòà íåò" << endl;
+	cout << "Ð¢Ð°ÐºÐ¾Ð³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° Ð½ÐµÑ‚" << endl;
 	return false;
 }
 
@@ -218,10 +218,10 @@ ostream &operator << (ostream &stream, const Queue& op2)
 {
 	el *ptr = op2.head;
 	if (!ptr)
-		stream << "Îáúåêò: ïóñò";
+		stream << "ÐžÐ±ÑŠÐµÐºÑ‚: Ð¿ÑƒÑÑ‚";
 	else
 	{
-		stream << "Îáúåêò: ";
+		stream << "ÐžÐ±ÑŠÐµÐºÑ‚: ";
 		while (ptr)
 		{
 			stream << ptr->data << " ";
@@ -233,7 +233,7 @@ ostream &operator << (ostream &stream, const Queue& op2)
 }
 istream &operator >> (istream &stream, Queue& op2)
 {
-	cout << "Ââåäèòå ÷èñëî >> ";
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾ >> ";
 	el *ptr = op2.tail;
 	if (!op2.head)
 	{
@@ -261,7 +261,7 @@ bool operator  ==(const Queue& op1, const Queue& op2)
 		for (int j = 0; j < op2.size; ++j) {
 			if (ptr->data == ptr1->data)
 			{
-				cout << "Åñòü îäèíàêîâûå ýëåìåíòû: " << ptr->data << endl;
+				cout << "Ð•ÑÑ‚ÑŒ Ð¾Ð´Ð¸Ð½Ð°ÐºÐ¾Ð²Ñ‹Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹: " << ptr->data << endl;
 				return true;
 			}
 
@@ -270,7 +270,7 @@ bool operator  ==(const Queue& op1, const Queue& op2)
 		ptr1 = op2.head;
 		ptr = ptr->next;
 	}
-	cout << "Îäèíàêîâûõ ýëåìåíòîâ íåò" << endl;
+	cout << "ÐžÐ´Ð¸Ð½Ð°ÐºÐ¾Ð²Ñ‹Ñ… ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð½ÐµÑ‚" << endl;
 	return false;
 }
 
@@ -282,7 +282,7 @@ bool operator  !=(const Queue& op1, const Queue& op2)
 		for (int j = 0; j < op2.size; ++j) {
 			if (ptr->data != ptr1->data)
 			{
-				cout << "Åñòü íåîäèíàêîâûå ýëåìåíòû: " << ptr->data << endl;
+				cout << "Ð•ÑÑ‚ÑŒ Ð½ÐµÐ¾Ð´Ð¸Ð½Ð°ÐºÐ¾Ð²Ñ‹Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹: " << ptr->data << endl;
 				return true;
 			}
 
@@ -291,7 +291,7 @@ bool operator  !=(const Queue& op1, const Queue& op2)
 		ptr1 = op2.head;
 		ptr = ptr->next;
 	}
-	cout << "Íåîäèíàêîâûõ ýëåìåíòîâ íåò" << endl;
+	cout << "ÐÐµÐ¾Ð´Ð¸Ð½Ð°ÐºÐ¾Ð²Ñ‹Ñ… ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð½ÐµÑ‚" << endl;
 	return false;
 }
 
@@ -303,14 +303,14 @@ bool operator  >(const Queue& op1, const Queue& op2)
 	{
 		if (ptr->data > ptr1->data)
 		{
-			cout << "Ýëåìåíò ïîä íîìåðîì " << count + 1 << "áîëüøå ÷åì ýëåìåíò â äðóãîé î÷åðåäè" << endl;
+			cout << "Ð­Ð»ÐµÐ¼ÐµÐ½Ñ‚ Ð¿Ð¾Ð´ Ð½Ð¾Ð¼ÐµÑ€Ð¾Ð¼ " << count + 1 << "Ð±Ð¾Ð»ÑŒÑˆÐµ Ñ‡ÐµÐ¼ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð² Ð´Ñ€ÑƒÐ³Ð¾Ð¹ Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð¸" << endl;
 			return true;
 		}
 		ptr = ptr->next;
 		ptr1 = ptr1->next;
 		count++;
 	}
-	cout << "Òàêîãî ýëåìåíòà íåò" << endl;
+	cout << "Ð¢Ð°ÐºÐ¾Ð³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° Ð½ÐµÑ‚" << endl;
 	return false;
 }
 
@@ -322,14 +322,14 @@ bool operator  <(const Queue& op1, const Queue& op2)
 	{
 		if (ptr->data < ptr1->data)
 		{
-			cout << "Ýëåìåíò ïîä íîìåðîì " << count + 1 << "ìåíüøå ÷åì ýëåìåíò â äðóãîé î÷åðåäè";
+			cout << "Ð­Ð»ÐµÐ¼ÐµÐ½Ñ‚ Ð¿Ð¾Ð´ Ð½Ð¾Ð¼ÐµÑ€Ð¾Ð¼ " << count + 1 << "Ð¼ÐµÐ½ÑŒÑˆÐµ Ñ‡ÐµÐ¼ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð² Ð´Ñ€ÑƒÐ³Ð¾Ð¹ Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð¸";
 			return true;
 		}
 		ptr = ptr->next;
 		ptr1 = ptr1->next;
 		count++;
 	}
-	cout << "Òàêîãî ýëåìåíòà íåò" << endl;
+	cout << "Ð¢Ð°ÐºÐ¾Ð³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° Ð½ÐµÑ‚" << endl;
 	return false;
 }
 
