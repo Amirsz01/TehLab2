@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include </Users/Amirsz/source/repos/ТестовыйСтенд/ТестовыйСтенд2/el.h>
+#include </Users/Amirsz/source/repos/РўРµСЃС‚РѕРІС‹Р№РЎС‚РµРЅРґ/РўРµСЃС‚РѕРІС‹Р№РЎС‚РµРЅРґ2/el.h>
 
 using namespace std;
 class Queue {
@@ -25,7 +25,7 @@ public:
 	}
 	int getSize();
 	void getPod(int size);
-	explicit Queue(const Queue& other); //Конструктор копирования
+	explicit Queue(const Queue& other); //РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 	Queue& operator /=(const Queue& op2);
 	Queue& operator +(int op1);
 	Queue& operator = (const Queue& op2);
