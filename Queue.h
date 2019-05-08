@@ -27,6 +27,8 @@ public:
 	void getPod(int size);
 	explicit Queue(const Queue& other); //Конструктор копирования
 	Queue& operator /=(const Queue& op2);
+	Queue& operator /=(int op1);
+	Queue& operator +(const Queue& op2);
 	Queue& operator +(int op1);
 	Queue& operator = (const Queue& op2);
 	Queue& operator++();
@@ -36,12 +38,19 @@ public:
 	bool operator >=(const Queue& op2);
 	bool operator <=(const Queue& op2);
 	friend Queue& operator /(Queue& op2, int op1);
+	friend Queue& operator /(Queue& op2, Queue& op1);
 	friend ostream& operator << (ostream &stream, const Queue& op2);
 	friend istream& operator >> (istream &stream, Queue& op2);
 	friend bool operator ==(const Queue& op1, const Queue& op2);
+	friend bool operator ==(const Queue& op1, int op2);
 	friend bool operator !=(const Queue& op1, const Queue& op2);
+	friend bool operator !=(const Queue& op1, int op2);
 	friend Queue& operator +=(Queue& op1, const Queue& op2);
+	friend Queue& operator +=(Queue& op1, int op2);
 	friend Queue& operator -=(Queue& op1, const Queue& op2);
+	friend Queue& operator -=(Queue& op1, int op2);
 	friend bool operator >(const Queue& op1, const Queue& op2);
-	friend bool operator  <(const Queue& op1, const Queue& op2);
+	friend bool operator >(const Queue& op1, int op2);
+	friend bool operator <(const Queue& op1, const Queue& op2);
+	friend bool operator <(const Queue& op1, int op2);
 };
