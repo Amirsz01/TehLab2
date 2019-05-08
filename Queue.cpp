@@ -129,6 +129,17 @@ Queue& Queue::operator /=(const Queue& op2)
 	return *this;
 }
 
+Queue& Queue::operator/=(int op1)
+{
+	el* ptr = this->head;
+	while (ptr)
+	{
+		ptr->data = ptr->data / op1;
+		ptr = ptr->next;
+	}
+	return *this;
+}
+
 bool Queue::operator >=(const Queue& op2) 
 {
 	int count = 0;
@@ -178,6 +189,19 @@ Queue& Queue::operator +(int op1)
 	}
 	return temp;
 }
+Queue& Queue::operator+(const Queue& op2)
+{
+	Queue temp(*this);
+	el* ptr = temp.head;
+	el* ptr2 = op2.head;
+	while (ptr)
+	{
+		ptr->data = ptr->data + ptr2->data;
+		ptr = ptr->next;
+		ptr2 = ptr2->next;
+	}
+	return temp;
+}
 Queue& Queue::operator = (const Queue& op2)
 {
 	this->size = op2.size;
@@ -209,6 +233,19 @@ Queue& operator /(Queue& op2, int op1) {
 	{
 		ptr->data = ptr->data / op1;
 		ptr = ptr->next;
+	}
+	return temp;
+}
+
+Queue& operator/(Queue& op2, Queue& op1)
+{
+	Queue temp(op2);
+	el* ptr = temp.head, *ptr2 = op1.head;
+	while (ptr)
+	{
+		ptr->data = ptr->data / ptr2->data;
+		ptr = ptr->next;
+		ptr2 = ptr2->next;
 	}
 	return temp;
 }
@@ -274,6 +311,22 @@ bool operator  ==(const Queue& op1, const Queue& op2)
 	return false;
 }
 
+bool operator==(const Queue& op1, int op2)
+{
+	el* ptr = op1.head;
+	for (int i = 0; i < op1.size; ++i)
+	{
+		if (ptr->data == op2)
+		{
+			cout << "Есть одинаковые элементы: " << ptr->data << endl;
+			return true;
+		}
+			ptr = ptr->next;
+	}
+	cout << "Одинаковых элементов нет" << endl;
+	return false;
+}
+
 bool operator  !=(const Queue& op1, const Queue& op2)
 {
 	el *ptr = op1.head, *ptr1 = op2.head;
@@ -289,6 +342,22 @@ bool operator  !=(const Queue& op1, const Queue& op2)
 			ptr1 = ptr1->next;
 		}
 		ptr1 = op2.head;
+		ptr = ptr->next;
+	}
+	cout << "Неодинаковых элементов нет" << endl;
+	return false;
+}
+
+bool operator!=(const Queue& op1, int op2)
+{
+	el* ptr = op1.head;
+	for (int i = 0; i < op1.size; ++i)
+	{
+		if (ptr->data != op2)
+		{
+			cout << "Есть неодинаковые элементы: " << ptr->data << endl;
+			return true;
+		}
 		ptr = ptr->next;
 	}
 	cout << "Неодинаковых элементов нет" << endl;
@@ -314,6 +383,24 @@ bool operator  >(const Queue& op1, const Queue& op2)
 	return false;
 }
 
+bool operator>(const Queue& op1, int op2)
+{
+	int count = 0;
+	el* ptr = op1.head;
+	while (ptr)
+	{
+		if (ptr->data > op2)
+		{
+			cout << "Элемент под номером " << count + 1 << "больше чем " << op2 << endl;
+			return true;
+		}
+		ptr = ptr->next;
+		count++;
+	}
+	cout << "Такого элемента нет" << endl;
+	return false;
+}
+
 bool operator  <(const Queue& op1, const Queue& op2)
 {
 	int count = 0;
@@ -333,6 +420,24 @@ bool operator  <(const Queue& op1, const Queue& op2)
 	return false;
 }
 
+bool operator<(const Queue& op1, int op2)
+{
+	int count = 0;
+	el* ptr = op1.head;
+	while (ptr)
+	{
+		if (ptr->data < op2)
+		{
+			cout << "Элемент под номером " << count + 1 << "меньше чем " << op2 << endl;
+			return true;
+		}
+		ptr = ptr->next;
+		count++;
+	}
+	cout << "Такого элемента нет" << endl;
+	return false;
+}
+
 Queue& operator +=(Queue& op1, const Queue& op2)
 {
 	el *ptr = op1.head, *ptr1 = op2.head;
@@ -345,6 +450,17 @@ Queue& operator +=(Queue& op1, const Queue& op2)
 	return op1;
 }
 
+Queue& operator+=(Queue& op1, int op2)
+{
+	el* ptr = op1.head;
+	while (ptr)
+	{
+		ptr->data = ptr->data + op2;
+		ptr = ptr->next;
+	}
+	return op1;
+}
+
 Queue& operator -=(Queue& op1, const Queue& op2)
 {
 	el *ptr = op1.head, *ptr1 = op2.head;
@@ -353,6 +469,17 @@ Queue& operator -=(Queue& op1, const Queue& op2)
 		ptr->data = ptr->data - ptr1->data;
 		ptr = ptr->next;
 		ptr1 = ptr1->next;
+	}
+	return op1;
+}
+
+Queue& operator-=(Queue& op1, int op2)
+{
+	el* ptr = op1.head;
+	while (ptr)
+	{
+		ptr->data = ptr->data - op2;
+		ptr = ptr->next;
 	}
 	return op1;
 }
